@@ -256,7 +256,7 @@ function User:Chat(args)
   if cmd_args[1] == "/build" then
     if cmd_args[2] ~= nil and cmd_args[3] ~= nil and cmd_args[4] ~= nil and cmd_args[5] ~= nil and cmd_args[6] ~= nil and cmd_args[7] ~= nil and cmd_args[8] ~= nil then
       local Message = PanauLife.Admin:build(cmd_args[2],cmd_args[3],cmd_args[4],self.player:GetPosition().x,self.player:GetPosition().y,self.player:GetPosition().z, cmd_args[5], cmd_args[6], cmd_args[7], cmd_args[8])
-      self.player:SendChatMessage(Message)
+      self.player:SendChatMessage(Message, Color(255,0,0))
     else
       self.player:SendChatMessage("La commande est incomplète !!!!", Color(255,0,0))
     end
