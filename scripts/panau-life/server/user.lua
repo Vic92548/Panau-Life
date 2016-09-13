@@ -1,6 +1,6 @@
 class("PanauLife_User")
 
-function Panaulife_User:__init()
+function PanauLife_User:__init()
   self.users = {}
 
   Events:Subscribe("ModuleLoad", self, self.Load)
