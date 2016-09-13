@@ -100,6 +100,22 @@ function PanauLife_GUI:Nametags()
   Render:ResetTransform()
 end
 
+local buildings
+
+function RenderBuildings()
+  local x = 1
+	while buildings[x].unique_name ~= nil do
+	  Render:DrawText(Vector3(buildings[x].pos_x, buildings[x].pos_y, buildings[x].pos_z), buildings[x].display_name, buildings[x].color, buildings[x].size)
+	end
+end
+Events:Subscribe("Render", RenderBuildings)
+
+function ClientFunction(data)
+	buildings = data
+end
+-- Subscribe ClientFunction to the network event "Test".
+Network:Subscribe("DrawBuildings", data)
+
 function PanauLife_GUI:ChatProximity()
   if not Chat:GetActive() then return end
 

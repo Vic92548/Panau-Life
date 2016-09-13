@@ -2,6 +2,7 @@ PanauLife.Config = {
   sql = {
     prefix = "panaulife_",
     users = "users",
+    buildings = "buildings",
     groups = "groups"
   },
 

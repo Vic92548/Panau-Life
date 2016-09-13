@@ -113,7 +113,10 @@ function User:login()
     register_chosesex = true
     return
   end
-
+  local data = PanauLife.Database:query([[
+  SELECT  *
+  FROM    ]]..PanauLife.Config.sql.prefix..PanauLife.Config.sql.buildings..[[]])
+  Network:Send(self.player, "DrawBuildings", data)
 end
 
 function User:register()
@@ -247,6 +250,14 @@ function User:Chat(args)
     elseif not UserFarm:verif_zone(cmd_args[2],self.player) then
       self.player:SendChatMessage("Il n'y a pas de champ de "..cmd_args[2].." ici !", Color(0,0,0))
       return true
+    end
+  end
+
+  if cmd_args[1] == "/build" then
+    if cmd_args[2] ~= nil and cmd_args[3] ~= nil and cmd_args[4] ~= nil and cmd_args[5] ~= nil and cmd_args[6] ~= nil and cmd_args[7] ~= nil and md_args[8] ~= nil then
+      self.player:SendChatMessage(PanauLife.Admin:build(cmd_args[2],cmd_args[3],cmd_args[4],self.player:GetPosition().x,self.player:GetPosition().y,self.player:GetPosition().z, cmd_args[5], cmd_args[6], cmd_args[7], cmd_args[8]))
+    else
+      self.player:SendChatMessage("La commande est incomplète !!!!", Color(255,0,0))
     end
   end
 
