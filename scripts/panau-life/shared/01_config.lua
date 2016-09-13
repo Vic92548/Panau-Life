@@ -1,4 +1,4 @@
-Panaulife.Config = {
+PanauLife.Config = {
   sql = {
     prefix = "panaulife_",
     users = "users",

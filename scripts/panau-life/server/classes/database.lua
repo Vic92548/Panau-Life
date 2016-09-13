@@ -1,8 +1,8 @@
-class("Panaulife_Database")
+class("PanauLife_Database")
 
-function Panaulife_Database:__init() end
+function PanauLife_Database:__init() end
 
-function Panaulife_Database:query(query, binds)
+function PanauLife_Database:query(query, binds)
   local data = {}
 
   query = SQL:Query(query)
@@ -34,7 +34,7 @@ function Panaulife_Database:query(query, binds)
   return data
 end
 
-function Panaulife_Database:execute(query, binds)
+function PanauLife_Database:execute(query, binds)
   query = SQL:Command(query)
   if binds then
     for param, value in pairs(binds) do
@@ -44,4 +44,4 @@ function Panaulife_Database:execute(query, binds)
   query = query:Execute()
 end
 
-Panaulife.Database = Panaulife_Database()
+PanauLife.Database = PanauLife_Database()

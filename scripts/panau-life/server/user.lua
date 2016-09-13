@@ -1,4 +1,4 @@
-class("Panaulife_User")
+class("PanauLife_User")
 
 function Panaulife_User:__init()
   self.users = {}
@@ -9,37 +9,37 @@ function Panaulife_User:__init()
   Events:Subscribe("PlayerQuit", self, self.Leave)
 end
 
-function Panaulife_User:Load()
+function PanauLife_User:Load()
   for player in Server:GetPlayers() do
     self.users[player:GetSteamId().string] = User(player)
   end
 end
 
-function Panaulife_User:Unload()
+function PanauLife_User:Unload()
   for player in Server:GetPlayers() do
     self:GetUser(player):SaveData()
     self:RemoveUser(player)
   end
 end
 
-function Panaulife_User:Join(a)
+function PanauLife_User:Join(a)
   self.users[a.player:GetSteamId().string] = User(a.player)
 end
 
-function Panaulife_User:Leave(a)
+function PanauLife_User:Leave(a)
   self:GetUser(a.player):SaveData()
   self:RemoveUser(a.player)
 end
 
-function Panaulife_User:GetUser(player)
+function PanauLife_User:GetUser(player)
   return self.users[player:GetSteamId().string]
 end
 
-function Panaulife_User:RemoveUser(player)
+function PanauLife_User:RemoveUser(player)
   self.users[player:GetSteamId().string] = nil
 end
 
-Panaulife.User = Panaulife_User()
+PanauLife.User = PanauLife_User()
 
 
 
@@ -51,7 +51,7 @@ class("User")
 function User:__init(player)
   self.player = player
 
-  local data = Panaulife.Database:query([[
+  local data = PanauLife.Database:query([[
     SELECT  user_steamid
     FROM    whitelisted
     WHERE   user_steamid = :steamid
@@ -71,13 +71,13 @@ function User:__init(player)
 end
 
 function User:Apply(position, angle, health, money)
-  
+
 end
 
 function User:LoadData()
-  local data = Panaulife.Database:query([[
+  local data = PanauLife.Database:query([[
     SELECT  user_group, user_posx, user_posy, user_posz, user_health, user_money, user_model, user_items
-    FROM    ]]..Panaulife.Config.sql.prefix..Panaulife.Config.sql.users..[[
+    FROM    ]]..PanauLife.Config.sql.prefix..PanauLife.Config.sql.users..[[
     WHERE   user_steamid = :steamid
     LIMIT   1
   ]], {
@@ -117,28 +117,28 @@ function User:login()
 end
 
 function User:register()
-  Panaulife.Database:execute([[
+  PanauLife.Database:execute([[
     INSERT
-    INTO    ]]..Panaulife.Config.sql.prefix..Panaulife.Config.sql.users..[[ (user_steamid, user_posx, user_posy, user_posz, user_angle, user_health, user_money, user_model, user_items, user_gender, user_origine)
+    INTO    ]]..PanauLife.Config.sql.prefix..PanauLife.Config.sql.users..[[ (user_steamid, user_posx, user_posy, user_posz, user_angle, user_health, user_money, user_model, user_items, user_gender, user_origine)
     VALUES  (:steamid, :posx, :posy, :posz, :angle, :health, :money, :model, :items, :gender, :origine)
   ]], {
     [":steamid"] = self.player:GetSteamId().string,
-    [":posx"] = Panaulife.Config.default_x,
-    [":posy"] = Panaulife.Config.default_y,
-    [":posz"] = Panaulife.Config.default_z,
-    [":angle"] = math.rad(Panaulife.Config.default_angle),
+    [":posx"] = PanauLife.Config.default_x,
+    [":posy"] = PanauLife.Config.default_y,
+    [":posz"] = PanauLife.Config.default_z,
+    [":angle"] = math.rad(PanauLife.Config.default_angle),
     [":health"] = 1,
-    [":money"] = Panaulife.Config.default_money,
-    [":model"] = Panaulife.Config.default_model,
-    [":items"] = Panaulife.Config.default_items,
+    [":money"] = PanauLife.Config.default_money,
+    [":model"] = PanauLife.Config.default_model,
+    [":items"] = PanauLife.Config.default_items,
     [":gender"] = genre,
     [":origine"] = origine
   })
 end
 
 function User:SaveData()
-  Panaulife.Database:execute([[
-    UPDATE  ]]..Panaulife.Config.sql.prefix..Panaulife.Config.sql.users..[[
+  PanauLife.Database:execute([[
+    UPDATE  ]]..PanauLife.Config.sql.prefix..PanauLife.Config.sql.users..[[
     SET     user_posx = :posx, user_posy = :posy, user_posz = :posz, user_angle = :angle, user_health = :health, user_money = :money, user_model = :model, user_items = :items
     WHERE   user_steamid = :steamid
   ]], {
@@ -252,7 +252,7 @@ function User:Chat(args)
 
   if cmd_args[1] == "/ajouter" then -- Commande ajouter = /ajouter item_name qualiter densiter pos1
       if cmd_args[5] == "pos1" then
-        Panaulife.Database:execute([[
+        PanauLife.Database:execute([[
         INSERT
         INTO    ]]..cmd_args[2]..[[ (quality, density, pos_x_1, pos_z_1)
         VALUES  (:quality, :density, :pos_x_1, :pos_z_1)
@@ -265,7 +265,7 @@ function User:Chat(args)
       end
 
       if cmd_args[4] == "pos2" then -- /ajouter item_name id pos2
-        Panaulife.Database:execute([[
+        PanauLife.Database:execute([[
         UPDATE  ]]..cmd_args[2]..[[
         SET     pos_x_2 = :posx, pos_z_2 = :posy
         WHERE   id = :id
@@ -276,13 +276,13 @@ function User:Chat(args)
         })
       end
 
-       local data2 = Panaulife.Database:query([[
+       local data2 = PanauLife.Database:query([[
     SELECT  *
     FROM    ]]..cmd_args[3]..[[
   ]])
 
   --if data.adminlvl == 3 then
-    if cmd_args[1] == "/add" then 
+    if cmd_args[1] == "/add" then
       if cmd_args[2] == "item" then  -- /create item item_name
         if not data2 then
           self.player:SendChatMessage("L'objet "..cmd_args[3].."  a été créé.", Color(0,0,0))
@@ -293,7 +293,7 @@ function User:Chat(args)
     end
   --end
   if cmd_args[1] == "/verif" then -- /verif item_name id
-    local data = Panaulife.Database:query([[
+    local data = PanauLife.Database:query([[
     SELECT  *
     FROM    :zone
     WHERE   id = :id
@@ -305,7 +305,7 @@ function User:Chat(args)
     if tonumber(data[x].pos_x_1) <= tonumber(data[x].pos_x_2) and tonumber(data[x].pos_z_1) >= tonumber(data[x].pos_z_2) then
       self.player:SendChatMessage("La zone de "..cmd_args[2].." et d'id " ..cmd_args[3].." été correct.", Color(0,0,0))
     elseif tonumber(data[x].pos_x_1) >= tonumber(data[x].pos_x_2) then
-      
+
     end
   end
 
@@ -334,5 +334,5 @@ function multiplier(str)
 end
 
 function User:Remove()
-  
+
 end

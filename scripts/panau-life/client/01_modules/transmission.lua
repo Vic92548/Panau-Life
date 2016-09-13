@@ -1,4 +1,4 @@
-class("Panaulife_Transmission")
+class("PanauLife_Transmission")
 
 function Panaulife_Transmission:__init()
   self.gear_cooldown = Timer()
@@ -13,11 +13,11 @@ function Panaulife_Transmission:__init()
   Events:Subscribe("InputPoll", self, self.CruiseControl)
 end
 
-function Panaulife_Transmission:GetVelocity()
-  
+function PanauLife_Transmission:GetVelocity()
+
 end
 
-function Panaulife_Transmission:EnterVehicle(a)
+function PanauLife_Transmission:EnterVehicle(a)
   if not a.is_driver then return end
 
   if not a.vehicle:GetValue("IsAutomatic") then
@@ -26,7 +26,7 @@ function Panaulife_Transmission:EnterVehicle(a)
   end
 end
 
-function Panaulife_Transmission:ChangeGear(a)
+function PanauLife_Transmission:ChangeGear(a)
   local vehicle = LocalPlayer:GetVehicle()
   if not vehicle or vehicle:GetClass() ~= VehicleClass.Land or vehicle:GetDriver() ~= LocalPlayer then return end
 
@@ -44,7 +44,7 @@ function Panaulife_Transmission:ChangeGear(a)
   end
 end
 
-function Panaulife_Transmission:EnableCruiseControl(a)
+function PanauLife_Transmission:EnableCruiseControl(a)
   local vehicle = LocalPlayer:GetVehicle()
   if not vehicle or vehicle:GetClass() ~= VehicleClass.Land or vehicle:GetDriver() ~= LocalPlayer then return end
 
@@ -65,7 +65,7 @@ function Panaulife_Transmission:EnableCruiseControl(a)
   end
 end
 
-function Panaulife_Transmission:CruiseControl(a)
+function PanauLife_Transmission:CruiseControl(a)
   local vehicle = LocalPlayer:GetVehicle()
   if not vehicle or vehicle:GetClass() ~= VehicleClass.Land or vehicle:GetDriver() ~= LocalPlayer then return end
 
@@ -79,4 +79,4 @@ function Panaulife_Transmission:CruiseControl(a)
   end
 end
 
-Panaulife.Transmission = Panaulife_Transmission()
+PanauLife.Transmission = PanauLife_Transmission()

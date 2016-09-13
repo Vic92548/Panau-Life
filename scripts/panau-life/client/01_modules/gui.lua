@@ -1,38 +1,38 @@
-class("Panaulife_GUI")
+class("PanauLife_GUI")
 
-function Panaulife_GUI:__init()
+function PanauLife_GUI:__init()
   self.enabled = true
 
   Events:Subscribe("Render", self, self.Render)
 end
 
 
-function Panaulife_GUI:SetEnabled(state)
+function PanauLife_GUI:SetEnabled(state)
   self.enabled = state
 end
 
-function Panaulife_GUI:GetEnabled()
+function PanauLife_GUI:GetEnabled()
   return self.enabled
 end
 
 
-function Panaulife_GUI:DrawTextShadowed(position, text, color, size)
+function PanauLife_GUI:DrawTextShadowed(position, text, color, size)
   Render:DrawText(position+Vector2(1, 1), text, Color(20, 20, 20, color.a*0.6), size)
   Render:DrawText(position+Vector2(2, 2), text, Color(20, 20, 20, color.a*0.3), size)
   Render:DrawText(position, text, color, size)
 end
 
 
-function Panaulife_GUI:GetWidthMiddle(size)
+function PanauLife_GUI:GetWidthMiddle(size)
   return Vector2(Render.Size.x/2-size.x/2, size.y)
 end
 
-function Panaulife_GUI:GetVelocity(vehicle)
+function PanauLife_GUI:GetVelocity(vehicle)
   return -(-vehicle:GetAngle()*vehicle:GetLinearVelocity()).z*3.6
 end
 
 
-function Panaulife_GUI:Render()
+function PanauLife_GUI:Render()
   if not self.enabled then return end
 
   self:GPS()
@@ -43,7 +43,7 @@ function Panaulife_GUI:Render()
   self:ChatProximity()
 end
 
-function Panaulife_GUI:GPS()
+function PanauLife_GUI:GPS()
   local vehicle = LocalPlayer:GetVehicle()
   if not vehicle or vehicle:GetDriver() ~= LocalPlayer then return end
 
@@ -56,7 +56,7 @@ function Panaulife_GUI:GPS()
   Render:DrawText(Vector2(300, 50), ("GPS - %ikm - %imn"):format(distance, time), Color(255, 190, 110), 40)
 end
 
-function Panaulife_GUI:Speedometer()
+function PanauLife_GUI:Speedometer()
   local vehicle = LocalPlayer:GetVehicle()
   if not vehicle or vehicle:GetDriver() ~= LocalPlayer then return end
 
@@ -80,11 +80,11 @@ function Panaulife_GUI:Speedometer()
   self:DrawTextShadowed(Vector2(Render.Width/2-Render:GetTextWidth(velocity, 48)/2, bottom_offset), velocity, Color(255, 190, 110), 48)
 end
 
-function Panaulife_GUI:HealthBar()
-  
+function PanauLife_GUI:HealthBar()
+
 end
 
-function Panaulife_GUI:Nametags()
+function PanauLife_GUI:Nametags()
   for player in Client:GetStreamedPlayers() do
     local head_position = player:GetBonePosition("ragdoll_Head")
     head_position.z = head_position.z+1
@@ -100,7 +100,7 @@ function Panaulife_GUI:Nametags()
   Render:ResetTransform()
 end
 
-function Panaulife_GUI:ChatProximity()
+function PanauLife_GUI:ChatProximity()
   if not Chat:GetActive() then return end
 
   local near_players = {}
@@ -119,4 +119,4 @@ function Panaulife_GUI:ChatProximity()
   end
 end
 
-Panaulife.GUI = Panaulife_GUI()
+PanauLife.GUI = PanauLife_GUI()

@@ -73,7 +73,7 @@ function multiplier(str)
 end
 
 function UserFarm:verif_zone_exsist(zone_name)
-local data = Panaulife.Database:query([[
+local data = PanauLife.Database:query([[
     SELECT  name, prix
     FROM    zones
     WHERE   name = :name
@@ -91,7 +91,7 @@ local data = Panaulife.Database:query([[
 end
 
 function UserFarm:verif_zone(zone_name,player)
-local data = Panaulife.Database:query([[
+local data = PanauLife.Database:query([[
     SELECT  pos_x_1, pos_x_2, pos_z_1, pos_z_2
     FROM    ]]..zone_name..[[
   ]], {
@@ -99,7 +99,7 @@ local data = Panaulife.Database:query([[
 
   if not data then
   end
-  
+
   print(data[2])
   local x = 1
   while data[x] do
