@@ -7,7 +7,7 @@ Server-related options.
 --]]
 Server =
 {
-    -- The maximum number of players that can be on the server at any 
+    -- The maximum number of players that can be on the server at any
     -- given time. Make sure your connection and server can handle it!
     -- Default value: 5000
     MaxPlayers                  = 100,
@@ -15,25 +15,25 @@ Server =
     -- game host, you don't need to worry about this.
     -- Default value: ""
     BindIP                      = "",
-    -- The port the server uses. 
+    -- The port the server uses.
     -- Default value: 7777
     BindPort                    = 7777,
-    -- The time before a player is timed out after temporarily losing 
+    -- The time before a player is timed out after temporarily losing
     -- connection, or crashing without properly disconnecting.
     -- Default value (in milliseconds): 10000
     Timeout                     = 10000,
 
     -- The name of the server, as seen by players and the server browser.
     -- Default value: "JC2-MP Server"
-    Name                        = "[FR] PanaoLife dev server #1",
+    Name                        = "Panau-Life Dev Server",
     -- The server description, as seen by players and the server browser.
     -- Default value: "No description available"
-    Description                 = "PanaoLife est un mode de jeu RolePlay en cours de développement, pour suivre le projet, notre groupe steam : http://steamcommunity.com/groups/panaolife#members",
+    Description                 = "Panau-Life is an unique role playing server.",
     -- The server password.
     -- Default value: ""
     Password                    = "",
 
-    -- Controls whether the server announces its presence to the master server 
+    -- Controls whether the server announces its presence to the master server
     -- and therefore to the server browser.
     -- Default value: true
     Announce                    = true,
@@ -55,9 +55,9 @@ Server =
 --[[
 SYNCRATE OPTIONS
 
-Sync rate options. These values control how often synchronization 
+Sync rate options. These values control how often synchronization
 packets are sent by the clients, in milliseconds. This lets you
-control how frequent the sync comes in, which may result in a 
+control how frequent the sync comes in, which may result in a
 smoother or less laggy experience
 --]]
 SyncRates =
@@ -67,18 +67,18 @@ SyncRates =
     -- Default value (in milliseconds): 120
     OnFoot                      = 120,
     -- Default value (in milliseconds): 1000
-    Passenger                   = 1000,
+    Passenger                   = 120,
     -- Default value (in milliseconds): 250
-    MountedGun                  = 250,
+    MountedGun                  = 120,
     -- Default value (in milliseconds): 350
-    StuntPosition               = 350
+    StuntPosition               = 120
 }
 
 --[[
 STREAMER OPTIONS
 
-Streamer-related options. The streamer is responsible for controlling the 
-visibility of objects (including players and vehicles) for other players. 
+Streamer-related options. The streamer is responsible for controlling the
+visibility of objects (including players and vehicles) for other players.
 
 What this means is that if you want to extend the distance at which objects
 remain visible for players, you need to change the StreamDistance.
@@ -97,7 +97,7 @@ Vehicle-related options.
 --]]
 Vehicle =
 {
-    -- The number of seconds required for a vehicle to respawn after 
+    -- The number of seconds required for a vehicle to respawn after
     -- vehicle death.
     -- Default value (in seconds): 10
     -- For instant respawn: 0
