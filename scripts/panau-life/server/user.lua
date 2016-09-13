@@ -109,8 +109,8 @@ end
 
 function User:login()
   if not self:LoadData() then
-    register = true
-    register_chosesex = true
+    self:register()
+    self:LoadData()
     return
   end
   local data = PanauLife.Database:query([[
@@ -254,7 +254,7 @@ function User:Chat(args)
   end
 
   if cmd_args[1] == "/build" then
-    if cmd_args[2] ~= nil and cmd_args[3] ~= nil and cmd_args[4] ~= nil and cmd_args[5] ~= nil and cmd_args[6] ~= nil and cmd_args[7] ~= nil and md_args[8] ~= nil then
+    if cmd_args[2] ~= nil and cmd_args[3] ~= nil and cmd_args[4] ~= nil and cmd_args[5] ~= nil and cmd_args[6] ~= nil and cmd_args[7] ~= nil and cmd_args[8] ~= nil then
       self.player:SendChatMessage(PanauLife.Admin:build(cmd_args[2],cmd_args[3],cmd_args[4],self.player:GetPosition().x,self.player:GetPosition().y,self.player:GetPosition().z, cmd_args[5], cmd_args[6], cmd_args[7], cmd_args[8]))
     else
       self.player:SendChatMessage("La commande est incomplète !!!!", Color(255,0,0))
