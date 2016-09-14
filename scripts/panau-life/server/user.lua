@@ -64,6 +64,11 @@ function User:__init(player)
     self.player:Kick("Serveur réservé aux développeurs de PanaoLife !")
   end
 
+  local data2 = PanauLife.Database:query([[
+  SELECT  *
+  FROM    ]]..PanauLife.Config.sql.prefix..PanauLife.Config.sql.buildings..[[]])
+  Network:Send(self.player, "DrawBuildings", data2)
+  print(data2[1].unique_name)
 
   self:login()
 
@@ -113,10 +118,7 @@ function User:login()
     self:LoadData()
     return
   end
-  local data = PanauLife.Database:query([[
-  SELECT  *
-  FROM    ]]..PanauLife.Config.sql.prefix..PanauLife.Config.sql.buildings..[[]])
-  Network:Send(self.player, "DrawBuildings", data)
+
 end
 
 function User:register()

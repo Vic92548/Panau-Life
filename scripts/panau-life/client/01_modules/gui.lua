@@ -37,6 +37,7 @@ function PanauLife_GUI:Render()
 
   self:GPS()
   self:Speedometer()
+  self:RenderBuildings()
 
   self:HealthBar()
   self:Nametags()
@@ -102,13 +103,14 @@ end
 
 local buildings
 
-function RenderBuildings()
+function PanauLife_GUI:RenderBuildings()
   local x = 1
 	while buildings[x].unique_name ~= nil do
 	  Render:DrawText(Vector3(buildings[x].pos_x, buildings[x].pos_y, buildings[x].pos_z), buildings[x].display_name, buildings[x].color, buildings[x].size)
+    Chat:Print(buildings[x].unique_name, Color(255,0,0))
+    x = x + 1
 	end
 end
-Events:Subscribe("Render", RenderBuildings)
 
 function ClientFunction(data)
 	buildings = data
