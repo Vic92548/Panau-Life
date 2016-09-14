@@ -1,6 +1,6 @@
 message = "Default message"
 function RenderMessage()
-	Render:DrawText(Render.Size / 2, message, Color(255, 255, 255))
+	Render:DrawText(Vector3( -6550, 219, -3290 ), message, Color(255,255,255), 20)
 end
 Events:Subscribe("Render", RenderMessage)
 
