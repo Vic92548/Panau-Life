@@ -68,7 +68,7 @@ function User:__init(player)
   SELECT  *
   FROM    ]]..PanauLife.Config.sql.prefix..PanauLife.Config.sql.buildings..[[]])
   Network:Send(self.player, "DrawBuildings", data2)
-  print(data2[1].unique_name)
+  print(data2)
 
   self:login()
 
