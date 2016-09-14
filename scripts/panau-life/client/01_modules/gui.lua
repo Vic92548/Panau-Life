@@ -114,7 +114,7 @@ function ClientFunction(data)
 	buildings = data
 end
 -- Subscribe ClientFunction to the network event "Test".
-Network:Subscribe("DrawBuildings", data)
+Network:Subscribe("DrawBuildings", ClientFunction)
 
 function PanauLife_GUI:ChatProximity()
   if not Chat:GetActive() then return end
