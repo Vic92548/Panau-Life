@@ -131,7 +131,7 @@ Player =
     -- to handle spawns, such as the freeroam script, then this spawn position
     -- will be used.
     -- Default value: Vector3( -6550, 209, -3290 )
-    SpawnPosition               = Vector3( -6550, 209, -3290 )
+    SpawnPosition               = Vector3(7752.1, 205, 3751.3)
 }
 
 --[[
