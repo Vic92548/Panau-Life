@@ -110,6 +110,7 @@ class("User")
       self:Register()
       self.player.data = self:LoadData()
       self:Spawn()
+    end
   end
 
   function User:Spawn()
