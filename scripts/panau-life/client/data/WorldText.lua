@@ -1,8 +1,8 @@
 class("WorldText")
 
-	
+
 	function WorldText:__init() end
-	
+
 	function WorldText:TextList()
 		local DisplayTextList = {}
 
@@ -32,9 +32,6 @@ class("WorldText")
 
 		-- Fin
 		return DisplayTextList
-	end
-
-	function WorldText:DrawDisplayText()
 	end
 
 PanauGUI.WorldText = WorldText()

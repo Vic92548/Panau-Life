@@ -25,12 +25,3 @@ function ServerFunction(args)
 	Network:Send(args.player, "Test", "Hello, client!")
 end
 Events:Subscribe("ClientModuleLoad", ServerFunction)
-
-function ChatText(args)
-  if args.text == "/p" then
-    Chat:Send(args.player, "Position x :"..args.player:GetPosition().x.." / Position y : "..args.player:GetPosition().y.." / Position Z : "..args.player:GetPosition().z, Color(255,255,255))
-    return false
-  end
-end
-
-Events:Subscribe("PlayerChat", ChatText)
