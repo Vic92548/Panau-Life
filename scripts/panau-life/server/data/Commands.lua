@@ -28,10 +28,17 @@ function ChatText(args)
     ]], {
       [":owner"] = args.player:GetSteamId().string,
       [":posx"] = args.player:GetPosition().x,
-      [":posy"] = args.player:GetPosition().x,
-      [":posz"] = args.player:GetPosition().x,
+      [":posy"] = args.player:GetPosition().y,
+      [":posz"] = args.player:GetPosition().z,
       [":model"] = tonumber(ArgsList[2])
     })
+    return false
+  end
+
+  if ArgsList[1] == "/spawn" and ArgsList[2] ~= nil then
+    -- Spawn a Cavallo at the player.
+    local obj = Vehicle.Create(tonumber(ArgsList[2]), args.player:GetPosition(), Angle(0, 0, 0))
+    Chat:Send(args.player, "Véhicule "..obj:GetId().." créé", Color(240,240,240))
     return false
   end
 
