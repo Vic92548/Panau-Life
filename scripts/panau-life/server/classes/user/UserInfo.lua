@@ -81,6 +81,24 @@ class("User")
       [":model"] = self.player:GetModelId(),
       [":steamid"] = self.player:GetSteamId().string
     })
+
+    local data = PanauLife.Database:query([[
+      SELECT  vehicle_id
+      FROM    vehicles
+      WHERE   vehicle_owner = :owner
+    ]], {
+      [":owner"] = self.player:GetSteamId().string
+    })
+
+    if not data then
+
+    else
+      local x = 1
+      while data[x] ~= nil do
+        PanauLife.Vehicles:SaveData(data[x].vehicle_id)
+        x = x + 1
+      end
+    end
   end
 
   function User:Register()
@@ -119,4 +137,20 @@ class("User")
     self.player:SetHealth(self.player.data.user_health)
     self.player:SetMoney(self.player.data.user_cash)
     self.player:SetModelId(self.player.data.user_model)
+
+    local data = PanauLife.Database:query([[
+      SELECT  *
+      FROM    vehicles
+      WHERE   vehicle_owner = :owner
+    ]], {
+      [":owner"] = self.player:GetSteamId().string
+    })
+
+      local x = 1
+      while data[x] ~= nil do
+        print("création de "..data[x].vehicle_id)
+        PanauLife.Vehicles:SetData(data[x].vehicle_id, data[x])
+        PanauLife.Vehicles:Create(data[x].vehicle_id)
+        x = x + 1
+      end
   end

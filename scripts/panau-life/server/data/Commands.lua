@@ -19,6 +19,22 @@ function ChatText(args)
       args.player:Teleport(Vector3(tonumber(ArgsList[2]),tonumber(ArgsList[3]),tonumber(ArgsList[4])),Angle(0,0,0))
     return false
   end
+
+  if ArgsList[1] == "/veh" and ArgsList[2] ~= nil then
+    PanauLife.Database:execute([[
+      INSERT
+      INTO    vehicles (vehicle_owner, vehicle_posx, vehicle_posy, vehicle_posz, vehicle_model)
+      VALUES  (:owner, :posx, :posy, :posz, :model)
+    ]], {
+      [":owner"] = args.player:GetSteamId().string,
+      [":posx"] = args.player:GetPosition().x,
+      [":posy"] = args.player:GetPosition().x,
+      [":posz"] = args.player:GetPosition().x,
+      [":model"] = tonumber(ArgsList[2])
+    })
+    return false
+  end
+
 end
 
 Events:Subscribe("PlayerChat", ChatText)
