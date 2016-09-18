@@ -147,13 +147,12 @@ class("User")
     })
 
       local x = 1
-      print("coucou")
       if not data then
         print("not data")
       else
         while data[x] ~= nil do
-          print("création de "..data[x].vehicle_id.." "..data[x].vehicle_posx.." "..data[x].vehicle_posy.." "..data[x].vehicle_posz.." "..data[x].vehicle_model)
-          PanauLife.Vehicles:Create(data[x].vehicle_id,data[x].vehicle_posx,data[x].vehicle_posy,data[x].vehicle_posz,data[x].vehicle_model)
+          PanauLife.Vehicles:SetData(data[x].vehicle_id, data[x])
+          PanauLife.Vehicles:Create(data[x].vehicle_id)
           x = x + 1
         end
       end
