@@ -20,6 +20,11 @@ function ChatText(args)
     return false
   end
 
+  if ArgsList[1] == "/color" then
+      args.player:GetVehicle():SetColors( Color(tonumber(ArgsList[2]),tonumber(ArgsList[3]),tonumber(ArgsList[4])), Color(tonumber(ArgsList[5]),tonumber(ArgsList[6]),tonumber(ArgsList[7])) )
+    return false
+  end
+
   if ArgsList[1] == "/veh" and ArgsList[2] ~= nil then
     PanauLife.Database:execute([[
       INSERT

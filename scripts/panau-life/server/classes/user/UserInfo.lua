@@ -51,7 +51,7 @@ class("User")
 
   function User:LoadData()
     local data = PanauLife.Database:query([[
-      SELECT  user_posx, user_posy, user_posz, user_health, user_cash, user_account, user_model
+      SELECT  *
       FROM    users
       WHERE   user_steamid = :steamid
       LIMIT   1
