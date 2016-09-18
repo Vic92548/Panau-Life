@@ -23,14 +23,20 @@ function ChatText(args)
   if ArgsList[1] == "/veh" and ArgsList[2] ~= nil then
     PanauLife.Database:execute([[
       INSERT
-      INTO    vehicles (vehicle_owner, vehicle_posx, vehicle_posy, vehicle_posz, vehicle_model)
-      VALUES  (:owner, :posx, :posy, :posz, :model)
+      INTO    vehicles (vehicle_owner, vehicle_posx, vehicle_posy, vehicle_posz, vehicle_model, vehicle_colorr, vehicle_colorg, vehicle_colorb, vehicle_colorr2, vehicle_colorg2, vehicle_colorb2)
+      VALUES  (:owner, :posx, :posy, :posz, :model, :r, :g, :b, :r2, :g2, :b2)
     ]], {
       [":owner"] = args.player:GetSteamId().string,
       [":posx"] = args.player:GetPosition().x,
       [":posy"] = args.player:GetPosition().y,
       [":posz"] = args.player:GetPosition().z,
-      [":model"] = tonumber(ArgsList[2])
+      [":model"] = tonumber(ArgsList[2]),
+      [":r"] = 255,
+      [":g"] = 255,
+      [":b"] = 220,
+      [":r2"] = 150,
+      [":g2"] = 255,
+      [":b2"] = 150
     })
     return false
   end

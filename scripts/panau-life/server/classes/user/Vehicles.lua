@@ -12,6 +12,8 @@ class("PanauVehicles")
     local obj = Vehicle.Create(self.vehicles[id].data.vehicle_model, Vector3(self.vehicles[id].data.vehicle_posx,self.vehicles[id].data.vehicle_posy,self.vehicles[id].data.vehicle_posz), Angle(0, 0, 0))
     self.vehicles[id].veh = obj:GetId()
     obj:SetColors( Color(self.vehicles[id].data.vehicle_colorr,self.vehicles[id].data.vehicle_colorg,self.vehicles[id].data.vehicle_colorb), Color(self.vehicles[id].data.vehicle_colorr2,self.vehicles[id].data.vehicle_colorg2,self.vehicles[id].data.vehicle_colorb2) )
+    obj:SetUnoccupiedRemove(false)
+    obj:SetUnoccupiedRespawnTime(99999999999)
   end
 
   function PanauVehicles:SaveData(id)
