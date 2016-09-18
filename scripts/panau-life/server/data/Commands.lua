@@ -14,6 +14,11 @@ function ChatText(args)
       args.player:SetModelId(tonumber(ArgsList[2]))
     return false
   end
+
+  if ArgsList[1] == "/tp" and ArgsList[2] ~= nil and ArgsList[3] ~= nil and ArgsList[4] ~= nil then
+      args.player:Teleport(Vector3(tonumber(ArgsList[2]),tonumber(ArgsList[3]),tonumber(ArgsList[4])),Angle(0,0,0))
+    return false
+  end
 end
 
 Events:Subscribe("PlayerChat", ChatText)

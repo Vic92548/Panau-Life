@@ -20,13 +20,16 @@ function RenderMessage()
 		local Dist = Camera:GetPosition():Distance(TextList[x].Position)
 		if Dist < TextList[x].Distance and Game:GetState() == GUIState.Game then
 			local t = Transform3()
-			t:Translate(Vector3(TextList[x].Position))
-			t:Rotate(Angle(Camera:GetAngle().yaw+0.6,math.rad(TextList[x].Rotation),0))
+			t:Translate(TextList[x].Position)
+			t:Rotate(Angle(Camera:GetAngle().yaw,math.rad(TextList[x].Rotation),0))
 			Render:SetTransform(t)
 			t:Scale(0.002)
 			Render:SetTransform(t)
 
-			Render:DrawText(TextList[x].Position, TextList[x].DisplayName, TextList[x].Color, TextList[x].FontSize)
+			local alpha = math.clamp((TextList[x].Distance-Dist)*5, 0, 255)
+
+			Render:DrawText(Vector3(20,50,10), TextList[x].DisplayName, Color(0,0,0, alpha/2.5), TextList[x].FontSize)
+			Render:DrawText(Vector3(0,30,0), TextList[x].DisplayName, Color(TextList[x].Color[1],TextList[x].Color[2],TextList[x].Color[3], alpha), TextList[x].FontSize)
 		end
 		x = x +1
 	end
