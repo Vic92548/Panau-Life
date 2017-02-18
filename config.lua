@@ -10,7 +10,7 @@ Server =
     -- The maximum number of players that can be on the server at any
     -- given time. Make sure your connection and server can handle it!
     -- Default value: 5000
-    MaxPlayers                  = 100,
+    MaxPlayers                  = 500,
     -- Used to control what IP this server binds to. Unless you're a dedicated
     -- game host, you don't need to worry about this.
     -- Default value: ""
@@ -31,7 +31,7 @@ Server =
     Description                 = "Panau-Life is an unique role playing server.",
     -- The server password.
     -- Default value: ""
-    Password                    = "",
+    Password                    = "FriteDu33",
 
     -- Controls whether the server announces its presence to the master server
     -- and therefore to the server browser.

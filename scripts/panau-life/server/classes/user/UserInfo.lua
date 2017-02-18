@@ -24,6 +24,7 @@ class("PanauUser")
 
   function PanauUser:Join(args)
     self.users[args.player:GetSteamId().string] = User(args.player)
+    PanauLife.Build:SendBuildingsTo(args.player)
   end
 
   function PanauUser:Leave(args)
@@ -146,7 +147,7 @@ class("User")
       [":owner"] = self.player:GetSteamId().string
     })
 
-      local x = 1
+      local x = 0
       if not data then
         print("not data")
       else

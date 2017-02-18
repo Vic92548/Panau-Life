@@ -11,8 +11,9 @@ function DrawShadowedText( pos, text, colour, size, scale )
     Render:DrawText( pos, text, colour, size, scale )
 end
 
-function RenderMessage()
+local BuildingsList = {}
 
+function RenderMessage()
 	local TextList = PanauGUI.WorldText:TextList()
 
 	local x = 1
@@ -34,6 +35,23 @@ function RenderMessage()
 		x = x +1
 	end
 
+	for Index, Value in pairs( BuildingsList ) do
+		local Dist = Camera:GetPosition():Distance(Vector3(tonumber(BuildingsList[Index].building_posx),tonumber(BuildingsList[Index].building_posy),tonumber(BuildingsList[Index].building_posz)))
+		if Dist < 200 and Game:GetState() == GUIState.Game then
+			local t = Transform3()
+      		t:Translate(Vector3(tonumber(BuildingsList[Index].building_posx),tonumber(BuildingsList[Index].building_posy),tonumber(BuildingsList[Index].building_posz)))
+      		t:Rotate(Angle(Camera:GetAngle().yaw,math.rad(180),0))
+      		Render:SetTransform(t)
+      		t:Scale(0.002)
+      		Render:SetTransform(t)
+
+      		local alpha = math.clamp((200-Dist)*5, 0, 255)
+
+      		Render:DrawText(Vector3(20,-2480,10), tostring(BuildingsList[Index].building_name), Color(0,0,0, alpha/2.5), 300)
+			Render:DrawText(Vector3(0,-2500,0), tostring(BuildingsList[Index].building_name), Color(255,255,255, alpha), 300)
+		end
+	end
+
 end
 Events:Subscribe("Render", RenderMessage)
 
@@ -42,3 +60,9 @@ function ClientFunction(sentMessage)
 end
 -- Subscribe ClientFunction to the network event "Test".
 Network:Subscribe("Test", ClientFunction)
+
+function ClientBuildings(sentMessage)
+	BuildingsList = sentMessage
+	print("Buldings arrived"..tostring(sentMessage[1].building_posy))
+end
+Network:Subscribe("Buldings", ClientBuildings)

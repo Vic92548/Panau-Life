@@ -5,11 +5,6 @@ function ChatText(args)
     return false
   end
 
-  if ArgsList[1] == "/build" then
-      Chat:Send(args.player, "Position x :"..args.player:GetPosition().x.." / Position y : "..args.player:GetPosition().y.." / Position Z : "..args.player:GetPosition().z, Color(240,240,240))
-    return false
-  end
-
   if ArgsList[1] == "/model" and ArgsList[2] ~= nil then
       args.player:SetModelId(tonumber(ArgsList[2]))
     return false
@@ -26,23 +21,22 @@ function ChatText(args)
   end
 
   if ArgsList[1] == "/veh" and ArgsList[2] ~= nil then
-    PanauLife.Database:execute([[
-      INSERT
-      INTO    vehicles (vehicle_owner, vehicle_posx, vehicle_posy, vehicle_posz, vehicle_model, vehicle_colorr, vehicle_colorg, vehicle_colorb, vehicle_colorr2, vehicle_colorg2, vehicle_colorb2)
-      VALUES  (:owner, :posx, :posy, :posz, :model, :r, :g, :b, :r2, :g2, :b2)
+    AddVeh(ArgsList[2], args.player)
+    local data = PanauLife.Database:query([[
+      SELECT  seq
+      FROM    sqlite_sequence
+      WHERE   name = :nm
     ]], {
-      [":owner"] = args.player:GetSteamId().string,
-      [":posx"] = args.player:GetPosition().x,
-      [":posy"] = args.player:GetPosition().y,
-      [":posz"] = args.player:GetPosition().z,
-      [":model"] = tonumber(ArgsList[2]),
-      [":r"] = 255,
-      [":g"] = 255,
-      [":b"] = 220,
-      [":r2"] = 150,
-      [":g2"] = 255,
-      [":b2"] = 150
+      [":nm"] = "vehicles"
     })
+    PanauLife.Vehicles:SetData(data.seq,PanauLife.Database:query([[
+      SELECT  *
+      FROM    vehicles
+      WHERE   vehicle_id = :id
+    ]], {
+      [":id"] = data.seq
+    }))
+    PanauLife.Vehicles:Create(data.seq)
     return false
   end
 
@@ -53,6 +47,42 @@ function ChatText(args)
     return false
   end
 
+  if ArgsList[1] == "/build" and ArgsList[2] ~= nil and ArgsList[3] ~= nil and ArgsList[4] ~= nil then
+    local data = {}
+    data.building_name = ArgsList[2]
+    data.building_type = ArgsList[3]
+    data.building_posx = args.player:GetPosition().x
+    data.building_posy = args.player:GetPosition().y
+    data.building_posz = args.player:GetPosition().z
+    data.building_radius = tonumber(ArgsList[4])
+    data.building_state = 2
+    PanauLife.Build:CreateBuilding(data)
+    return false
+  end
+
 end
 
 Events:Subscribe("PlayerChat", ChatText)
+
+function AddVeh(model,player)
+  PanauLife.Database:execute([[
+    INSERT
+    INTO    vehicles (vehicle_owner, vehicle_posx, vehicle_posy, vehicle_posz, vehicle_model, vehicle_colorr, vehicle_colorg, vehicle_colorb, vehicle_colorr2, vehicle_colorg2, vehicle_colorb2, vehicle_yaw, vehicle_pitch, vehicle_roll)
+    VALUES  (:owner, :posx, :posy, :posz, :model, :r, :g, :b, :r2, :g2, :b2, :yaw, :pitch, :roll); SELECT last_insert_rowid() FROM vehicles
+  ]], {
+    [":owner"] = player:GetSteamId().string,
+    [":posx"] = player:GetPosition().x,
+    [":posy"] = player:GetPosition().y,
+    [":posz"] = player:GetPosition().z,
+    [":model"] = tonumber(model),
+    [":r"] = 255,
+    [":g"] = 255,
+    [":b"] = 220,
+    [":r2"] = 150,
+    [":g2"] = 255,
+    [":b2"] = 150,
+    [":yaw"] = 0,
+    [":pitch"] = 0,
+    [":roll"] = 0
+  })
+end
