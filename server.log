@@ -1,0 +1,483 @@
+10:26:06 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:26:06 | [info ] | Loading configuration
+10:26:06 | [info ] | Succesfully loaded configuration
+10:26:08 | [info ] | No ban list found: cleared bans
+10:26:08 | [info ] | Server started up successfully
+10:26:08 | [info ] | Loading module panau-life
+10:26:08 | [info ] | 	Loading script "shared\00_init.lua"
+10:26:08 | [info ] | 	Loading script "shared\config.lua"
+10:26:08 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:26:08 | [info ] | 	Loading script "server\classes\database.lua"
+10:26:08 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:26:08 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:26:08 | [info ] | 	Loading script "server\data\Commands.lua"
+10:26:08 | [info ] | 	Loading script "server\server.lua"
+10:26:08 | [error] | Failed to run file server.lua in module panau-life: 
+10:26:08 | [error] |   ...er Dedicated Server\scripts\panau-life\server\server.lua:1: module 'socket.http' not found:
+10:26:08 | [error] | 	no field package.preload['socket.http']
+10:26:08 | [error] | 	no file 'C:\Program Files (x86)\Steam\steamapps\common\Just Cause 2 - Multiplayer Dedicated Server\scripts\panau-life\server\packages\socket\http.lua'
+10:26:08 | [error] | 	no file 'C:\Program Files (x86)\Steam\steamapps\common\Just Cause 2 - Multiplayer Dedicated Server\scripts\panau-life\server\packages\socket\http\init.lua'
+10:26:08 | [error] | 	no file 'C:\Program Files (x86)\Steam\steamapps\common\Just Cause 2 - Multiplayer Dedicated Server\lua\packages\socket\http.lua'
+10:26:08 | [error] | 	no file 'C:\Program Files (x86)\Steam\steamapps\common\Just Cause 2 - Multiplayer Dedicated Server\lua\packages\socket\http\init.lua'C:\Program Files (x86)\Steam\steamapps\common\Just Cause 2 - Multiplayer Dedicated Server\?.dll;C:\Program Files (x86)\Steam\steamapps\common\Just Cause 2 - Multiplayer Dedicated Server\loadall.dll;.\?.dll
+10:26:08 | [error] |   Callstack:
+10:26:08 | [error] |     API function: in global require
+10:26:08 | [error] |     server\server.lua: in main chunk
+10:26:08 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+10:26:08 | [error] |   Runtime Error: no such table: buildings
+10:26:08 | [error] |   Callstack:
+10:26:08 | [error] |     API function: in method Query
+10:26:08 | [error] |     server\classes\database.lua:8: in method query
+10:26:08 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:26:08 | [error] |   Callstack:
+10:26:08 | [error] |     API function: in method Query
+10:26:08 | [error] |     server\classes\database.lua:8: in method query
+10:26:08 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:26:08 | [info ] | Module panau-life loaded with errors
+10:27:10 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:27:10 | [info ] | Loading configuration
+10:27:10 | [info ] | Succesfully loaded configuration
+10:27:11 | [info ] | No ban list found: cleared bans
+10:27:11 | [info ] | Server started up successfully
+10:27:11 | [info ] | Loading module panau-life
+10:27:11 | [info ] | 	Loading script "shared\00_init.lua"
+10:27:11 | [info ] | 	Loading script "shared\config.lua"
+10:27:11 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:27:11 | [info ] | 	Loading script "server\classes\database.lua"
+10:27:11 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:27:11 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:27:11 | [info ] | 	Loading script "server\data\Commands.lua"
+10:27:11 | [info ] | 	Loading script "server\server.lua"
+10:27:11 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+10:27:11 | [error] |   Runtime Error: no such table: buildings
+10:27:11 | [error] |   Callstack:
+10:27:11 | [error] |     API function: in method Query
+10:27:11 | [error] |     server\classes\database.lua:8: in method query
+10:27:11 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:27:11 | [error] |   Callstack:
+10:27:11 | [error] |     API function: in method Query
+10:27:11 | [error] |     server\classes\database.lua:8: in method query
+10:27:11 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:27:11 | [info ] | Module panau-life loaded successfully
+10:30:24 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:30:24 | [info ] | Loading configuration
+10:30:24 | [info ] | Succesfully loaded configuration
+10:30:24 | [info ] | No ban list found: cleared bans
+10:30:24 | [info ] | Server started up successfully
+10:30:24 | [info ] | Loading module panau-life
+10:30:24 | [info ] | 	Loading script "shared\00_init.lua"
+10:30:24 | [info ] | 	Loading script "shared\config.lua"
+10:30:24 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:30:24 | [info ] | 	Loading script "server\classes\database.lua"
+10:30:24 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:30:24 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:30:24 | [info ] | 	Loading script "server\data\Commands.lua"
+10:30:24 | [info ] | 	Loading script "server\server.lua"
+10:30:24 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+10:30:24 | [error] |   Runtime Error: no such table: buildings
+10:30:24 | [error] |   Callstack:
+10:30:24 | [error] |     API function: in method Query
+10:30:24 | [error] |     server\classes\database.lua:8: in method query
+10:30:24 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:30:24 | [error] |   Callstack:
+10:30:24 | [error] |     API function: in method Query
+10:30:24 | [error] |     server\classes\database.lua:8: in method query
+10:30:24 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:30:24 | [info ] | Module panau-life loaded successfully
+10:47:58 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:47:58 | [info ] | Loading configuration
+10:47:58 | [info ] | Succesfully loaded configuration
+10:47:58 | [info ] | No ban list found: cleared bans
+10:47:58 | [info ] | Server started up successfully
+10:47:58 | [info ] | Loading module panau-life
+10:47:58 | [info ] | 	Loading script "shared\00_init.lua"
+10:47:58 | [info ] | 	Loading script "shared\config.lua"
+10:47:58 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:47:58 | [info ] | 	Loading script "server\classes\database.lua"
+10:47:58 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:47:58 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:47:58 | [info ] | 	Loading script "server\data\Commands.lua"
+10:47:58 | [info ] | 	Loading script "server\server.lua"
+10:47:58 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+10:47:58 | [error] |   Runtime Error: no such table: buildings
+10:47:58 | [error] |   Callstack:
+10:47:58 | [error] |     API function: in method Query
+10:47:58 | [error] |     server\classes\database.lua:8: in method query
+10:47:58 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:47:58 | [error] |   Callstack:
+10:47:58 | [error] |     API function: in method Query
+10:47:58 | [error] |     server\classes\database.lua:8: in method query
+10:47:58 | [error] |     server\classes\buildings\build.lua:10: in function <server\classes\buildings\build.lua:9>
+10:47:58 | [info ] | Module panau-life loaded successfully
+10:51:36 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:51:36 | [info ] | Loading configuration
+10:51:36 | [info ] | Succesfully loaded configuration
+10:51:36 | [info ] | No ban list found: cleared bans
+10:51:36 | [info ] | Server started up successfully
+10:51:36 | [info ] | Loading module panau-life
+10:51:36 | [info ] | 	Loading script "shared\00_init.lua"
+10:51:36 | [info ] | 	Loading script "shared\config.lua"
+10:51:36 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:51:36 | [info ] | 	Loading script "server\classes\database.lua"
+10:51:36 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:51:36 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:51:36 | [info ] | 	Loading script "server\data\Commands.lua"
+10:51:36 | [info ] | 	Loading script "server\server.lua"
+10:51:36 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+10:51:36 | [error] |   ...er\scripts\panau-life\server\classes\buildings\build.lua:14: bad argument #1 to 'pairs' (table expected, got boolean)
+10:51:36 | [error] |   Callstack:
+10:51:36 | [error] |     API function: in global pairs
+10:51:36 | [error] |     server\classes\buildings\build.lua:14: in function <server\classes\buildings\build.lua:9>
+10:51:36 | [info ] | Module panau-life loaded successfully
+10:54:37 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:54:37 | [info ] | Loading configuration
+10:54:37 | [info ] | Succesfully loaded configuration
+10:54:38 | [info ] | No ban list found: cleared bans
+10:54:38 | [info ] | Server started up successfully
+10:54:38 | [info ] | Loading module panau-life
+10:54:38 | [info ] | 	Loading script "shared\00_init.lua"
+10:54:38 | [info ] | 	Loading script "shared\config.lua"
+10:54:38 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:54:38 | [info ] | 	Loading script "server\classes\database.lua"
+10:54:38 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:54:38 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:54:38 | [info ] | 	Loading script "server\data\Commands.lua"
+10:54:38 | [info ] | 	Loading script "server\server.lua"
+10:54:38 | [info ] | [panau-life] 1	table: 032738C0
+10:54:38 | [info ] | [panau-life] 2	table: 03273910
+10:54:38 | [info ] | [panau-life] nil
+10:54:38 | [info ] | Module panau-life loaded successfully
+10:55:05 | [info ] | Connection accepted
+10:55:05 | [info ] | Adding player with ID 0 and guid 855684184975018053, SteamID: STEAM_0:1:48031961
+10:55:05 | [info ] | Soldat264 joined the server (127.0.0.1)
+10:55:06 | [error] | Lua error in module panau-life when running event PlayerAuthenticate: 
+10:55:06 | [error] |   Runtime Error: table users has no column named user_skillspoint
+10:55:06 | [error] |   Callstack:
+10:55:06 | [error] |     API function: in method Command
+10:55:06 | [error] |     server\classes\database.lua:38: in method execute
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:114: in method Register
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:147: in method Login
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:92: in function <server\classes\user\UserInfo.lua:89>
+10:55:06 | [error] |     API function: in global User
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:26: in function <server\classes\user\UserInfo.lua:25>
+10:55:06 | [error] |   Callstack:
+10:55:06 | [error] |     API function: in method Command
+10:55:06 | [error] |     server\classes\database.lua:38: in method execute
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:114: in method Register
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:147: in method Login
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:92: in function <server\classes\user\UserInfo.lua:89>
+10:55:06 | [error] |     API function: in global User
+10:55:06 | [error] |     server\classes\user\UserInfo.lua:26: in function <server\classes\user\UserInfo.lua:25>
+10:55:06 | [error] |   Arguments:
+10:55:06 | [error] |     player: Soldat264
+10:57:56 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:57:56 | [info ] | Loading configuration
+10:57:56 | [info ] | Succesfully loaded configuration
+10:57:57 | [info ] | No ban list found: cleared bans
+10:57:57 | [info ] | Server started up successfully
+10:57:57 | [info ] | Loading module panau-life
+10:57:57 | [info ] | 	Loading script "shared\00_init.lua"
+10:57:57 | [info ] | 	Loading script "shared\config.lua"
+10:57:57 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:57:57 | [info ] | 	Loading script "server\classes\database.lua"
+10:57:57 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:57:57 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:57:57 | [info ] | 	Loading script "server\data\Commands.lua"
+10:57:57 | [info ] | 	Loading script "server\server.lua"
+10:57:57 | [info ] | [panau-life] 1	table: 07898CE0
+10:57:57 | [info ] | [panau-life] 2	table: 07897138
+10:57:57 | [info ] | [panau-life] nil
+10:57:57 | [info ] | Module panau-life loaded successfully
+10:59:13 | [info ] | JCMP Server 0.3.0 (Build 1041)
+10:59:13 | [info ] | Loading configuration
+10:59:13 | [info ] | Succesfully loaded configuration
+10:59:13 | [info ] | No ban list found: cleared bans
+10:59:13 | [info ] | Server started up successfully
+10:59:13 | [info ] | Loading module panau-life
+10:59:13 | [info ] | 	Loading script "shared\00_init.lua"
+10:59:13 | [info ] | 	Loading script "shared\config.lua"
+10:59:13 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+10:59:13 | [info ] | 	Loading script "server\classes\database.lua"
+10:59:13 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+10:59:13 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+10:59:13 | [info ] | 	Loading script "server\data\Commands.lua"
+10:59:13 | [info ] | 	Loading script "server\server.lua"
+10:59:13 | [info ] | [panau-life] 1	table: 089B1CC8
+10:59:13 | [info ] | [panau-life] 2	table: 089B1B38
+10:59:13 | [info ] | [panau-life] nil
+10:59:13 | [info ] | Module panau-life loaded successfully
+10:59:42 | [info ] | Connection accepted
+10:59:42 | [info ] | Adding player with ID 0 and guid 864691389097730785, SteamID: STEAM_0:1:48031961
+10:59:42 | [info ] | Soldat264 joined the server (127.0.0.1)
+10:59:43 | [error] | Lua error in module panau-life when running event PlayerAuthenticate: 
+10:59:43 | [error] |   Runtime Error: no such column: vehicle_owner
+10:59:43 | [error] |   Callstack:
+10:59:43 | [error] |     API function: in method Query
+10:59:43 | [error] |     server\classes\database.lua:8: in method query
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:176: in method Spawn
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:150: in method Login
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:92: in function <server\classes\user\UserInfo.lua:89>
+10:59:43 | [error] |     API function: in global User
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:26: in function <server\classes\user\UserInfo.lua:25>
+10:59:43 | [error] |   Callstack:
+10:59:43 | [error] |     API function: in method Query
+10:59:43 | [error] |     server\classes\database.lua:8: in method query
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:176: in method Spawn
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:150: in method Login
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:92: in function <server\classes\user\UserInfo.lua:89>
+10:59:43 | [error] |     API function: in global User
+10:59:43 | [error] |     server\classes\user\UserInfo.lua:26: in function <server\classes\user\UserInfo.lua:25>
+10:59:43 | [error] |   Arguments:
+10:59:43 | [error] |     player: Soldat264
+17:25:47 | [info ] | JCMP Server 0.3.0 (Build 1041)
+17:25:47 | [info ] | Loading configuration
+17:25:47 | [info ] | Succesfully loaded configuration
+17:25:48 | [info ] | No ban list found: cleared bans
+17:25:48 | [info ] | Server started up successfully
+17:25:48 | [info ] | Loading module panau-life
+17:25:48 | [info ] | 	Loading script "shared\00_init.lua"
+17:25:48 | [info ] | 	Loading script "shared\config.lua"
+17:25:48 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+17:25:48 | [info ] | 	Loading script "server\classes\database.lua"
+17:25:48 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+17:25:48 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+17:25:48 | [info ] | 	Loading script "server\data\Commands.lua"
+17:25:48 | [info ] | 	Loading script "server\server.lua"
+17:25:48 | [info ] | [panau-life] building_colorb	50
+17:25:48 | [info ] | [panau-life] building_posz	500
+17:25:48 | [info ] | [panau-life] building_radius	50
+17:25:48 | [info ] | [panau-life] building_posx	500
+17:25:48 | [info ] | [panau-life] building_type	restaurant
+17:25:48 | [info ] | [panau-life] building_state	50
+17:25:48 | [info ] | [panau-life] building_name	test_restaurant
+17:25:48 | [info ] | [panau-life] building_posy	500
+17:25:48 | [info ] | [panau-life] building_height	50
+17:25:48 | [info ] | [panau-life] building_colorr	50
+17:25:48 | [info ] | [panau-life] building_colorg	50
+17:25:48 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+17:25:48 | [error] |   ...er\scripts\panau-life\server\classes\buildings\build.lua:17: attempt to index field '?' (a nil value)
+17:25:48 | [error] |   Callstack:
+17:25:48 | [error] |     API function: in metamethod __index
+17:25:48 | [error] |     server\classes\buildings\build.lua:17: in function <server\classes\buildings\build.lua:9>
+17:25:48 | [info ] | Module panau-life loaded successfully
+17:26:45 | [info ] | JCMP Server 0.3.0 (Build 1041)
+17:26:45 | [info ] | Loading configuration
+17:26:45 | [info ] | Succesfully loaded configuration
+17:26:45 | [info ] | No ban list found: cleared bans
+17:26:45 | [info ] | Server started up successfully
+17:26:45 | [info ] | Loading module panau-life
+17:26:45 | [info ] | 	Loading script "shared\00_init.lua"
+17:26:45 | [info ] | 	Loading script "shared\config.lua"
+17:26:45 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+17:26:45 | [info ] | 	Loading script "server\classes\database.lua"
+17:26:45 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+17:26:45 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+17:26:45 | [info ] | 	Loading script "server\data\Commands.lua"
+17:26:45 | [info ] | 	Loading script "server\server.lua"
+17:26:45 | [info ] | [panau-life] building_colorg	50
+17:26:45 | [info ] | [panau-life] building_posy	500
+17:26:45 | [info ] | [panau-life] building_state	50
+17:26:45 | [info ] | [panau-life] building_type	restaurant
+17:26:45 | [info ] | [panau-life] building_posx	500
+17:26:45 | [info ] | [panau-life] building_radius	50
+17:26:45 | [info ] | [panau-life] building_name	test_restaurant
+17:26:45 | [info ] | [panau-life] building_height	50
+17:26:45 | [info ] | [panau-life] building_colorb	50
+17:26:45 | [info ] | [panau-life] building_colorr	50
+17:26:45 | [info ] | [panau-life] building_posz	500
+17:26:45 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+17:26:45 | [error] |   ...er\scripts\panau-life\server\classes\buildings\build.lua:17: attempt to index field '?' (a nil value)
+17:26:45 | [error] |   Callstack:
+17:26:45 | [error] |     API function: in metamethod __index
+17:26:45 | [error] |     server\classes\buildings\build.lua:17: in function <server\classes\buildings\build.lua:9>
+17:26:45 | [info ] | Module panau-life loaded successfully
+17:27:54 | [info ] | JCMP Server 0.3.0 (Build 1041)
+17:27:54 | [info ] | Loading configuration
+17:27:54 | [info ] | Succesfully loaded configuration
+17:27:55 | [info ] | No ban list found: cleared bans
+17:27:55 | [info ] | Server started up successfully
+17:27:55 | [info ] | Loading module panau-life
+17:27:55 | [info ] | 	Loading script "shared\00_init.lua"
+17:27:55 | [info ] | 	Loading script "shared\config.lua"
+17:27:55 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+17:27:55 | [info ] | 	Loading script "server\classes\database.lua"
+17:27:55 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+17:27:55 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+17:27:55 | [info ] | 	Loading script "server\data\Commands.lua"
+17:27:55 | [info ] | 	Loading script "server\server.lua"
+17:27:55 | [info ] | [panau-life] building_colorr	50
+17:27:55 | [info ] | [panau-life] building_colorb	50
+17:27:55 | [info ] | [panau-life] building_posy	500
+17:27:55 | [info ] | [panau-life] building_posz	500
+17:27:55 | [info ] | [panau-life] building_radius	50
+17:27:55 | [info ] | [panau-life] building_height	50
+17:27:55 | [info ] | [panau-life] building_name	test_restaurant
+17:27:55 | [info ] | [panau-life] building_type	restaurant
+17:27:55 | [info ] | [panau-life] building_state	50
+17:27:55 | [info ] | [panau-life] building_colorg	50
+17:27:55 | [info ] | [panau-life] building_posx	500
+17:27:55 | [error] | Lua error in module panau-life when running event ModuleLoad: 
+17:27:55 | [error] |   ...er\scripts\panau-life\server\classes\buildings\build.lua:17: attempt to index field '?' (a nil value)
+17:27:55 | [error] |   Callstack:
+17:27:55 | [error] |     API function: in metamethod __index
+17:27:55 | [error] |     server\classes\buildings\build.lua:17: in function <server\classes\buildings\build.lua:9>
+17:27:55 | [info ] | Module panau-life loaded successfully
+17:29:47 | [info ] | JCMP Server 0.3.0 (Build 1041)
+17:29:47 | [info ] | Loading configuration
+17:29:47 | [info ] | Succesfully loaded configuration
+17:29:48 | [info ] | No ban list found: cleared bans
+17:29:48 | [info ] | Server started up successfully
+17:29:48 | [info ] | Loading module panau-life
+17:29:48 | [info ] | 	Loading script "shared\00_init.lua"
+17:29:48 | [info ] | 	Loading script "shared\config.lua"
+17:29:48 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+17:29:48 | [info ] | 	Loading script "server\classes\database.lua"
+17:29:48 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+17:29:48 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+17:29:48 | [info ] | 	Loading script "server\data\Commands.lua"
+17:29:48 | [info ] | 	Loading script "server\server.lua"
+17:29:48 | [info ] | [panau-life] building_posz	500
+17:29:48 | [info ] | [panau-life] building_colorb	50
+17:29:48 | [info ] | [panau-life] building_radius	50
+17:29:48 | [info ] | [panau-life] building_posx	500
+17:29:48 | [info ] | [panau-life] building_height	50
+17:29:48 | [info ] | [panau-life] building_state	50
+17:29:48 | [info ] | [panau-life] building_colorg	50
+17:29:48 | [info ] | [panau-life] building_posy	500
+17:29:48 | [info ] | [panau-life] building_colorr	50
+17:29:48 | [info ] | [panau-life] building_name	test_restaurant
+17:29:48 | [info ] | [panau-life] building_type	restaurant
+17:29:48 | [info ] | [panau-life] test_restaurant
+17:29:48 | [info ] | Module panau-life loaded successfully
+17:30:45 | [info ] | Connection accepted
+17:30:46 | [info ] | Adding player with ID 0 and guid 1148418275197149318, SteamID: STEAM_0:1:48031961
+17:30:46 | [info ] | Soldat264 joined the server (127.0.0.1)
+17:30:46 | [info ] | [panau-life] not data
+17:30:46 | [info ] | [panau-life] nil
+17:30:46 | [info ] | [panau-life] table: 08F254E0
+17:30:46 | [info ] | [panau-life] Soldat264 has been authenticated by Steam
+17:30:46 | [error] | Lua error in module panau-life when running event PlayerAuthenticate: 
+17:30:46 | [error] |   Runtime Error: no such table: whitelisted
+17:30:46 | [error] |   Callstack:
+17:30:46 | [error] |     API function: in method Query
+17:30:46 | [error] |     server\classes\database.lua:8: in method query
+17:30:46 | [error] |     server\server.lua:7: in function <server\server.lua:2>
+17:30:46 | [error] |   Callstack:
+17:30:46 | [error] |     API function: in method Query
+17:30:46 | [error] |     server\classes\database.lua:8: in method query
+17:30:46 | [error] |     server\server.lua:7: in function <server\server.lua:2>
+17:30:46 | [error] |   Arguments:
+17:30:46 | [error] |     player: Soldat264
+17:30:56 | [info ] | Soldat264 left the server (127.0.0.1)
+17:34:52 | [info ] | JCMP Server 0.3.0 (Build 1041)
+17:34:52 | [info ] | Loading configuration
+17:34:52 | [info ] | Succesfully loaded configuration
+17:34:52 | [info ] | No ban list found: cleared bans
+17:34:52 | [info ] | Server started up successfully
+17:34:52 | [info ] | Loading module panau-life
+17:34:52 | [info ] | 	Loading script "shared\00_init.lua"
+17:34:52 | [info ] | 	Loading script "shared\config.lua"
+17:34:52 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+17:34:52 | [info ] | 	Loading script "server\classes\database.lua"
+17:34:52 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+17:34:52 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+17:34:52 | [info ] | 	Loading script "server\data\Commands.lua"
+17:34:52 | [info ] | 	Loading script "server\server.lua"
+17:34:52 | [info ] | [panau-life] building_posy	500
+17:34:52 | [info ] | [panau-life] building_height	50
+17:34:52 | [info ] | [panau-life] building_posz	500
+17:34:52 | [info ] | [panau-life] building_radius	50
+17:34:52 | [info ] | [panau-life] building_type	restaurant
+17:34:52 | [info ] | [panau-life] building_colorr	50
+17:34:52 | [info ] | [panau-life] building_name	test_restaurant
+17:34:52 | [info ] | [panau-life] building_state	50
+17:34:52 | [info ] | [panau-life] building_posx	500
+17:34:52 | [info ] | [panau-life] building_colorb	50
+17:34:52 | [info ] | [panau-life] building_colorg	50
+17:34:52 | [info ] | [panau-life] test_restaurant
+17:34:52 | [info ] | Module panau-life loaded successfully
+17:35:14 | [info ] | Connection accepted
+17:35:14 | [info ] | Adding player with ID 0 and guid 4503970273339611, SteamID: STEAM_0:1:48031961
+17:35:14 | [info ] | Soldat264 joined the server (127.0.0.1)
+17:35:15 | [info ] | [panau-life] not data
+17:35:15 | [info ] | [panau-life] nil
+17:35:15 | [info ] | [panau-life] table: 08B6A618
+17:35:15 | [info ] | [panau-life] Soldat264 has been authenticated by Steam
+17:35:25 | [info ] | Soldat264 left the server (127.0.0.1)
+17:35:49 | [info ] | Connection accepted
+17:35:49 | [info ] | Adding player with ID 0 and guid 1004303087737594536, SteamID: STEAM_0:1:48031961
+17:35:49 | [info ] | Soldat264 joined the server (127.0.0.1)
+17:35:50 | [info ] | [panau-life] not data
+17:35:50 | [info ] | [panau-life] nil
+17:35:50 | [info ] | [panau-life] table: 08B6FE88
+17:35:50 | [info ] | [panau-life] Soldat264 has been authenticated by Steam
+17:36:00 | [info ] | Soldat264 left the server (127.0.0.1)
+17:38:24 | [info ] | JCMP Server 0.3.0 (Build 1041)
+17:38:24 | [info ] | Loading configuration
+17:38:24 | [info ] | Succesfully loaded configuration
+17:38:24 | [info ] | No ban list found: cleared bans
+17:38:24 | [info ] | Server started up successfully
+17:38:24 | [info ] | Loading module panau-life
+17:38:24 | [info ] | 	Loading script "shared\00_init.lua"
+17:38:24 | [info ] | 	Loading script "shared\config.lua"
+17:38:24 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+17:38:24 | [info ] | 	Loading script "server\classes\database.lua"
+17:38:24 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+17:38:24 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+17:38:24 | [info ] | 	Loading script "server\data\Commands.lua"
+17:38:24 | [info ] | 	Loading script "server\server.lua"
+17:38:24 | [info ] | [panau-life] building_state	50
+17:38:24 | [info ] | [panau-life] building_height	50
+17:38:24 | [info ] | [panau-life] building_posx	500
+17:38:24 | [info ] | [panau-life] building_colorg	50
+17:38:24 | [info ] | [panau-life] building_colorr	50
+17:38:24 | [info ] | [panau-life] building_name	test_restaurant
+17:38:24 | [info ] | [panau-life] building_radius	50
+17:38:24 | [info ] | [panau-life] building_posy	500
+17:38:24 | [info ] | [panau-life] building_type	restaurant
+17:38:24 | [info ] | [panau-life] building_posz	500
+17:38:24 | [info ] | [panau-life] building_colorb	50
+17:38:24 | [info ] | [panau-life] test_restaurant
+17:38:24 | [info ] | Module panau-life loaded successfully
+17:38:41 | [info ] | Connection accepted
+17:38:41 | [info ] | Adding player with ID 0 and guid 288230747063085505, SteamID: STEAM_0:1:48031961
+17:38:41 | [info ] | Soldat264 joined the server (127.0.0.1)
+17:38:41 | [info ] | [panau-life] not data
+17:38:41 | [info ] | [panau-life] nil
+17:38:41 | [info ] | [panau-life] table: 07B51D58
+17:38:41 | [info ] | [panau-life] Soldat264 has been authenticated by Steam
+17:38:51 | [info ] | Soldat264 left the server (127.0.0.1)
+08:40:43 | [info ] | JCMP Server 0.3.0 (Build 1041)
+08:40:44 | [info ] | Loading configuration
+08:40:44 | [info ] | Succesfully loaded configuration
+08:40:49 | [info ] | No ban list found: cleared bans
+08:40:49 | [info ] | Server started up successfully
+08:40:49 | [info ] | Loading module panau-life
+08:40:49 | [info ] | 	Loading script "shared\00_init.lua"
+08:40:49 | [info ] | 	Loading script "shared\config.lua"
+08:40:49 | [info ] | 	Loading script "server\classes\buildings\build.lua"
+08:40:49 | [info ] | 	Loading script "server\classes\database.lua"
+08:40:49 | [info ] | 	Loading script "server\classes\user\UserInfo.lua"
+08:40:49 | [info ] | 	Loading script "server\classes\user\Vehicles.lua"
+08:40:49 | [info ] | 	Loading script "server\data\Commands.lua"
+08:40:49 | [info ] | 	Loading script "server\server.lua"
+08:40:49 | [info ] | [panau-life] building_height	50
+08:40:49 | [info ] | [panau-life] building_state	50
+08:40:49 | [info ] | [panau-life] building_colorb	50
+08:40:49 | [info ] | [panau-life] building_colorr	50
+08:40:49 | [info ] | [panau-life] building_name	test_restaurant
+08:40:49 | [info ] | [panau-life] building_type	restaurant
+08:40:49 | [info ] | [panau-life] building_radius	50
+08:40:49 | [info ] | [panau-life] building_posx	500
+08:40:49 | [info ] | [panau-life] building_posz	500
+08:40:49 | [info ] | [panau-life] building_colorg	50
+08:40:49 | [info ] | [panau-life] building_posy	500
+08:40:49 | [info ] | [panau-life] test_restaurant
+08:40:49 | [info ] | Module panau-life loaded successfully
+08:41:49 | [info ] | Connection accepted
+08:41:49 | [info ] | Adding player with ID 0 and guid 725079679831076976, SteamID: STEAM_0:1:48031961
+08:41:49 | [info ] | Soldat264 joined the server (127.0.0.1)
+08:41:49 | [info ] | [panau-life] not data
+08:41:49 | [info ] | [panau-life] nil
+08:41:49 | [info ] | [panau-life] table: 0917CF50
+08:41:49 | [info ] | [panau-life] Soldat264 has been authenticated by Steam
+08:42:01 | [info ] | Soldat264 left the server (127.0.0.1)

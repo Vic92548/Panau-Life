@@ -11,7 +11,7 @@ function DrawShadowedText( pos, text, colour, size, scale )
     Render:DrawText( pos, text, colour, size, scale )
 end
 
-local BuildingsList = {}
+BuildingsList = {}
 
 function RenderMessage()
 	local TextList = PanauGUI.WorldText:TextList()
@@ -47,8 +47,8 @@ function RenderMessage()
 
       		local alpha = math.clamp((200-Dist)*5, 0, 255)
 
-      		Render:DrawText(Vector3(20,-2480,10), tostring(BuildingsList[Index].building_name), Color(0,0,0, alpha/2.5), 300)
-			Render:DrawText(Vector3(0,-2500,0), tostring(BuildingsList[Index].building_name), Color(255,255,255, alpha), 300)
+      		Render:DrawText(Vector3(20,-2480,10), string.gsub(tostring(BuildingsList[Index].building_name),"_"," "), Color(0,0,0, alpha/2.5), 300)
+			Render:DrawText(Vector3(0,-2500,0), string.gsub(tostring(BuildingsList[Index].building_name),"_"," "), Color(tonumber(BuildingsList[Index].building_colorr),tonumber(BuildingsList[Index].building_colorg),tonumber(BuildingsList[Index].building_colorb), alpha), 300)
 		end
 	end
 

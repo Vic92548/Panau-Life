@@ -14,15 +14,15 @@ class("PanauBuild")
     for k, v in pairs( self.buildings ) do
       print(k, v)
     end
-    print(self.buildings[1].building_name)
+    print(self.buildings.building_name)
   end
 
   function PanauBuild:CreateBuilding(data)
     
     PanauLife.Database:execute([[
       INSERT  
-      INTO    buildings (building_name, building_type, building_posx, building_posy, building_posz, building_radius, building_state)
-      VALUES  (:name, :type, :posx, :posy, :posz, :radius, :state)
+      INTO    buildings (building_name, building_type, building_posx, building_posy, building_posz, building_radius, building_state, building_height, building_colorr, building_colorg, building_colorb)
+      VALUES  (:name, :type, :posx, :posy, :posz, :radius, :state, :height, :colorr, :colorg, :colorb)
     ]], {
       [":name"] = data.building_name,
       [":type"] = data.building_type,
@@ -30,13 +30,19 @@ class("PanauBuild")
       [":posy"] = data.building_posy,
       [":posz"] = data.building_posz,
       [":radius"] = data.building_radius,
-      [":state"] = data.building_state
+      [":state"] = data.building_state,
+      [":height"] = data.building_height,
+      [":colorr"] = data.building_colorr,
+      [":colorg"] = data.building_colorg,
+      [":colorb"] = data.building_colorb
     })
+    self.LoadBuildings()
+    self:SendBuildings()
   end
 
-  function PanauBuild:SendBuildings(buildings)
+  function PanauBuild:SendBuildings()
     for player in Server:GetPlayers() do
-      Network:Send(player, "Buldings", buildings)
+      Network:Send(player, "Buldings", self.buildings)
     end
   end
 

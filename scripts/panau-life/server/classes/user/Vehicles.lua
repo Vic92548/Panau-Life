@@ -13,14 +13,14 @@ class("PanauVehicles")
     self.vehicles[id].veh = obj:GetId()
     obj:SetColors( Color(self.vehicles[id].data.vehicle_colorr,self.vehicles[id].data.vehicle_colorg,self.vehicles[id].data.vehicle_colorb), Color(self.vehicles[id].data.vehicle_colorr2,self.vehicles[id].data.vehicle_colorg2,self.vehicles[id].data.vehicle_colorb2) )
     obj:SetUnoccupiedRemove(false)
-    obj:SetUnoccupiedRespawnTime(99999999999)
+    obj:SetUnoccupiedRespawnTime(9999999999)
   end
 
   function PanauVehicles:SaveData(id)
     local Tone1,Tone2 = Vehicle.GetById(self.vehicles[id].veh):GetColors()
     PanauLife.Database:execute([[
       UPDATE  vehicles
-      SET     vehicle_posx = :posx, vehicle_posy = :posy, vehicle_posz = :posz, vehicle_colorr = :cr, vehicle_colorg = :cg, vehicle_colorb = :cb, vehicle_colorr2 = :cr2, vehicle_colorg2 = :cg2, vehicle_colorb2 = :cb2, vehicle_yaw = :yaw, vehicle_pitch = :pitch, vehicle_roll = :roll
+      SET     vehicle_posx = :posx, vehicle_posy = :posy, vehicle_posz = :posz, vehicle_colorr = :cr, vehicle_colorg = :cg, vehicle_colorb = :cb, vehicle_colorr2 = :cr2, vehicle_colorg2 = :cg2, vehicle_colorb2 = :cb2, vehicle_yaw = :yaw, vehicle_pitch = :pitch, vehicle_roll = :roll, vehicle_items = :items, vehicle_locked = :locked, vehicle_capacity = :capacity
       WHERE   vehicle_id = :veh_id
     ]], {
       [":posx"] = Vehicle.GetById(self.vehicles[id].veh):GetPosition().x,
@@ -35,6 +35,9 @@ class("PanauVehicles")
       [":yaw"] = Vehicle.GetById(self.vehicles[id].veh):GetAngle().yaw,
       [":pitch"] = Vehicle.GetById(self.vehicles[id].veh):GetAngle().pitch,
       [":roll"] = Vehicle.GetById(self.vehicles[id].veh):GetAngle().roll,
+      [":items"] = self.vehicles[id].data.vehicle_items,
+      [":locked"] = self.vehicles[id].data.vehicle_locked,
+      [":capacity"] = self.vehicles[id].data.vehicle_capacity,
       [":veh_id"] = id
     })
     Vehicle.GetById(self.vehicles[id].veh):Remove()
