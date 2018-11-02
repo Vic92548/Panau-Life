@@ -47,11 +47,12 @@ function ChatText(args)
 
   if ArgsList[1] == "/spawn" and ArgsList[2] ~= nil then
     local obj = Vehicle.Create(tonumber(ArgsList[2]), args.player:GetPosition(), Angle(0, 0, 0))
+    
     Chat:Send(args.player, "Véhicule "..obj:GetId().." créé", Color(240,240,240))
     return false
   end
 
-  if ArgsList[1] == "/build" and ArgsList[2] ~= nil and ArgsList[3] ~= nil and ArgsList[4] ~= nil and ArgsList[5] ~= nil and ArgsList[6] ~= nil and ArgsList[7] ~= nil and ArgsList[8] ~= nil then
+  if ArgsList[1] == "/build" and ArgsList[2] ~= nil and ArgsList[3] ~= nil and ArgsList[4] ~= nil and ArgsList[5] ~= nil and ArgsList[6] ~= nil and ArgsList[7] ~= nil and ArgsList[8] ~= nil and ArgsList[9] ~= nil then
     local data = {}
     data.building_name = ArgsList[2]
     data.building_type = ArgsList[3]
@@ -64,10 +65,15 @@ function ChatText(args)
     data.building_colorr = tonumber(ArgsList[6])
     data.building_colorg = tonumber(ArgsList[7])
     data.building_colorb = tonumber(ArgsList[8])
+    data.building_items = ArgsList[9]
     PanauLife.Build:CreateBuilding(data)
+    Chat:Send(args.player, ArgsList[3].." "..ArgsList[2].." créé", Color(240,240,240))
     return false
   end
 
+  if ArgsList[1] == "/build" then
+    Chat:Send(args.player,"buiiiild", Color(240,240,240))
+  end
 end
 
 Events:Subscribe("PlayerChat", ChatText)

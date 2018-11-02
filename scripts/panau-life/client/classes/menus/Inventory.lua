@@ -50,6 +50,7 @@ function InventoryMenu:__init()
     self.SuicideButton:Subscribe( "Press", self, self.Suicide )
 
     -- INVENTORY MENU --
+    self.OldInventory = ""
     self.InventoryBase = BaseWindow.Create( self.window )
     self.InventoryBase:SetDock( GwenPosition.Bottom )
     self.InventoryBase:SetSizeRel( Vector2( 1, 1 ) )
@@ -65,7 +66,7 @@ function InventoryMenu:__init()
     self.InventoryUseButton:SetSizeRel( Vector2(0.25,0.05))
     self.InventoryUseButton:SetPositionRel( Vector2(0.0625,0.825))
     self.InventoryUseButton:SetText("Utiliser")
-    --self.InventoryUseButton:Subscribe( "Press", self, self.Suicide )
+    self.InventoryUseButton:Subscribe( "Press", self, self.UseItem )
 
     self.InvetoryDestroyButton = Button.Create(self.InventoryBase)
     self.InvetoryDestroyButton:SetSizeRel( Vector2(0.25,0.05))
@@ -83,6 +84,7 @@ function InventoryMenu:__init()
     self.Items = {}
 
     -- VEICULE MENU  --
+    self.OldVehicles = {}
     self.VehiculeBase = BaseWindow.Create( self.window )
     self.VehiculeBase:SetDock( GwenPosition.Bottom )
     self.VehiculeBase:SetSizeRel( Vector2( 1, 1 ) )
@@ -114,17 +116,12 @@ end
 
 function InventoryMenu:DestroyItem()
     local SelectedRow = self.ItemList:GetSelectedRow()
-    if tonumber(SelectedRow:GetCellText(1)) > 1 then
-        SelectedRow:SetCellText(1, tostring(tonumber(SelectedRow:GetCellText(1)) - 1))
-    else
-        SelectedRow:Remove()
-    end
-    local JoinedItems = {}
-    for i = 1,#self.Items do
-            JoinedItems[i] = table.concat({self.Items[i]:GetCellText(0),self.Items[i]:GetCellText(1)}, "*")
-    end
-    User.user_items = table.concat(JoinedItems, "/")
-    Network:Send("ClientSendPlayerItems", User.user_items)
+    Network:Send("ClientDestroyedItem", SelectedRow:GetCellText(0))
+end
+
+function InventoryMenu:UseItem()
+    local SelectedRow = self.ItemList:GetSelectedRow()
+    Network:Send("ClientUseItem", SelectedRow:GetCellText(0))
 end
 
 function InventoryMenu:Suicide()
@@ -158,31 +155,46 @@ function InventoryMenu:Render()
         self.MoneyLabel:SetText("Argent : "..tostring(LocalPlayer:GetMoney()).." $")
         self.AccountLabel:SetText("Compte en banque : "..tostring(User.user_account).." $")
 
-        local items = User.user_items:split("/")
-        for i = 1,#items do
-            local item = self.ItemList:AddItem( items[i] )
-            local UnderItems = items[i]:split("*")
-            for i = 1,#UnderItems do
-                item:SetCellText( i-1, UnderItems[i] )
+        if User.user_items != self.OldInventory then
+            self.OldInventory = User.user_items
+            local items = User.user_items:split("/")
+            self.ItemList:Clear()
+            for i = 1,#items do
+                local item = self.ItemList:AddItem( items[i] )
+                local UnderItems = items[i]:split("*")
+                for i = 1,#UnderItems do
+                    item:SetCellText( i-1, UnderItems[i] )
+                end
+                self.Items[i] = item
+                item:SetVisible( true )
             end
-            self.Items[i] = item
-            item:SetVisible( true )
         end
-
+        local bVehicleUpdated = false
         for i = 1,#User.vehicles do
-            local item = self.VehiculeList:AddItem( tostring(User.vehicles[i]) )
-            item:SetCellText( 0, "Voiture1" )
-            item:SetCellText( 1, tostring(User.vehicles[i].vehicle_capacity))
-            item:SetCellText( 2, tostring(math.abs(math.sqrt(math.pow(LocalPlayer:GetPosition().x - User.vehicles[i].vehicle_posx,2) + math.pow(LocalPlayer:GetPosition().y - User.vehicles[i].vehicle_posy,2) + math.pow(LocalPlayer:GetPosition().z - User.vehicles[i].vehicle_posz,2)))))
-            item:SetCellText( 3, tostring(User.vehicles[i].vehicle_locked))
-            self.Vehicles[i] = item
+            if self.OldVehicles[i] ~= User.vehicles[i] then
+                bVehicleUpdated = true
+                self.OldVehicles = User.vehicles
+                self.VehiculeList:Clear()
+            end
+        end
+        if bVehicleUpdated then
+            for i = 1,#User.vehicles do
+                local item = self.VehiculeList:AddItem( tostring(User.vehicles[i]) )
+                item:SetCellText( 0, "Voiture1" )
+                item:SetCellText( 1, tostring(User.vehicles[i].vehicle_capacity))
+                item:SetCellText( 2, tostring(math.abs(math.sqrt(math.pow(LocalPlayer:GetPosition().x - User.vehicles[i].vehicle_posx,2) + math.pow(LocalPlayer:GetPosition().y - User.vehicles[i].vehicle_posy,2) + math.pow(LocalPlayer:GetPosition().z - User.vehicles[i].vehicle_posz,2)))))
+                item:SetCellText( 3, tostring(User.vehicles[i].vehicle_locked))
+                self.Vehicles[i] = item
+            end
         end
         UserLoaded = false
     end
     for i = 1,#User.vehicles do
             local item = self.Vehicles[i]
-            item:SetCellText( 2, tostring(math.abs(math.sqrt(math.pow(LocalPlayer:GetPosition().x - User.vehicles[i].vehicle_posx,2) + math.pow(LocalPlayer:GetPosition().y - User.vehicles[i].vehicle_posy,2) + math.pow(LocalPlayer:GetPosition().z - User.vehicles[i].vehicle_posz,2)))))
-            item:SetCellText( 3, tostring(User.vehicles[i].vehicle_locked))
+            if item then
+                item:SetCellText( 2, tostring(math.abs(math.sqrt(math.pow(LocalPlayer:GetPosition().x - User.vehicles[i].vehicle_posx,2) + math.pow(LocalPlayer:GetPosition().y - User.vehicles[i].vehicle_posy,2) + math.pow(LocalPlayer:GetPosition().z - User.vehicles[i].vehicle_posz,2)))))
+                item:SetCellText( 3, tostring(User.vehicles[i].vehicle_locked))
+            end
     end
 end
 

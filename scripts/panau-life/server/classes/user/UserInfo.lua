@@ -73,12 +73,11 @@ function PlayerSaveData(player)
       [":owner"] = player:GetSteamId().string
     })
 
-    if not data then
-
-    else
+    if data then
       local x = 1
       while data[x] ~= nil do
         PanauLife.Vehicles:SaveData(data[x].vehicle_id)
+        print("vehicle saved")
         x = x + 1
       end
     end
@@ -171,6 +170,8 @@ class("User")
     self.player:SetHealth(Users[self.player:GetSteamId().string].user_health)
     self.player:SetMoney(Users[self.player:GetSteamId().string].user_cash)
     self.player:SetModelId(Users[self.player:GetSteamId().string].user_model)
+
+    print("user spawned")
 
 
     local data = PanauLife.Database:query([[

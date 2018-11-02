@@ -63,6 +63,6 @@ Network:Subscribe("Test", ClientFunction)
 
 function ClientBuildings(sentMessage)
 	BuildingsList = sentMessage
-	print("Buldings arrived"..tostring(sentMessage[1].building_posy))
+	--print("Buldings arrived"..tostring(sentMessage[1].building_posy))
 end
 Network:Subscribe("Buldings", ClientBuildings)

@@ -4,20 +4,20 @@ function HUD:__init()
 	self.HungerBar = ProgressBar.Create("HungerBar")
 	self.HungerBar:SetVisible(true)
 	self.HungerBar:SetValue(1)
-	self.HungerBar:SetSizeRel( Vector2( 0.25, 0.04 ) )
-    self.HungerBar:SetPositionRel( Vector2( 0.25, 0.96 ) )
+	self.HungerBar:SetSizeRel( Vector2( 0.25, 0.02 ) )
+    self.HungerBar:SetPositionRel( Vector2( 0.25, 0.98 ) )
 
     self.ThirstBar = ProgressBar.Create("ThirstBar")
 	self.ThirstBar:SetVisible(true)
 	self.ThirstBar:SetValue(1)
-	self.ThirstBar:SetSizeRel( Vector2( 0.25, 0.04 ) )
-    self.ThirstBar:SetPositionRel( Vector2( 0, 0.96 ) )
+	self.ThirstBar:SetSizeRel( Vector2( 0.25, 0.02 ) )
+    self.ThirstBar:SetPositionRel( Vector2( 0, 0.98 ) )
 
     self.ExpBar = ProgressBar.Create("ExpBar")
 	self.ExpBar:SetVisible(true)
 	self.ExpBar:SetValue(0)
-	self.ExpBar:SetSizeRel( Vector2( 0.25, 0.04 ) )
-    self.ExpBar:SetPositionRel( Vector2( 0.50, 0.96 ) )
+	self.ExpBar:SetSizeRel( Vector2( 0.25, 0.02 ) )
+    self.ExpBar:SetPositionRel( Vector2( 0.50, 0.98 ) )
 
     Events:Subscribe( "Render", self, self.Render )
 end
@@ -45,5 +45,17 @@ function HUD:Render()
 		HudLoaded = false
 	end
 end
+
+HideCrosshair = function()
+	Game:FireEvent("gui.aim.hide")
+end
+ 
+Events:Subscribe("Render", HideCrosshair)
+
+DisableHook = function()
+	Game:FireEvent("ply.grappling.disable")
+end
+ 
+Events:Subscribe("GameLoad", DisableHook)
 
 PanauGUI.HUD = HUD()

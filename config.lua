@@ -67,7 +67,7 @@ SyncRates =
     -- Default value (in milliseconds): 120
     OnFoot                      = 120,
     -- Default value (in milliseconds): 1000
-    Passenger                   = 120,
+    Passenger                   = 500,
     -- Default value (in milliseconds): 250
     MountedGun                  = 120,
     -- Default value (in milliseconds): 350
@@ -102,7 +102,7 @@ Vehicle =
     -- Default value (in seconds): 10
     -- For instant respawn: 0
     -- For no respawning: nil
-    DeathRespawnTime            = 10,
+    DeathRespawnTime            = nil,
     -- Controls whether to remove the vehicle if respawning is turned off,
     -- and the vehicle dies.
     -- Default value: false
@@ -113,7 +113,7 @@ Vehicle =
     -- Default value (in seconds): 45
     -- For instant respawn: 0
     -- For no respawning: nil
-    UnoccupiedRespawnTime       = 45,
+    UnoccupiedRespawnTime       = nil,
     -- Controls whether to remove the vehicle if respawning is turned off,
     -- and the vehicle is left unoccupied.
     -- Default value: false
@@ -131,7 +131,7 @@ Player =
     -- to handle spawns, such as the freeroam script, then this spawn position
     -- will be used.
     -- Default value: Vector3( -6550, 209, -3290 )
-    SpawnPosition               = Vector3(7752.1, 205, 3751.3)
+    SpawnPosition               = Vector3( -9425, 204, -2489 )
 }
 
 --[[
@@ -173,11 +173,11 @@ World =
 {
     -- The default time of day at world creation.
     -- Default value (in hours): 0.0
-    Time                        = 0.0,
+    Time                        = 10.0,
 
     -- The increment added to the time of day each second.
     -- Default value (in minutes): 1
-    TimeStep                    = 1,
+    TimeStep                    = 0.5,
 
     -- The default weather severity at world creation.
     -- Default value: 0

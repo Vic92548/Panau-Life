@@ -1,5 +1,4 @@
 class("PanauBuild")
-
   function PanauBuild:__init()
     self.buildings = {}
 
@@ -21,8 +20,8 @@ class("PanauBuild")
     
     PanauLife.Database:execute([[
       INSERT  
-      INTO    buildings (building_name, building_type, building_posx, building_posy, building_posz, building_radius, building_state, building_height, building_colorr, building_colorg, building_colorb)
-      VALUES  (:name, :type, :posx, :posy, :posz, :radius, :state, :height, :colorr, :colorg, :colorb)
+      INTO    buildings (building_name, building_type, building_posx, building_posy, building_posz, building_radius, building_state, building_height, building_colorr, building_colorg, building_colorb,building_items)
+      VALUES  (:name, :type, :posx, :posy, :posz, :radius, :state, :height, :colorr, :colorg, :colorb,:items)
     ]], {
       [":name"] = data.building_name,
       [":type"] = data.building_type,
@@ -34,9 +33,10 @@ class("PanauBuild")
       [":height"] = data.building_height,
       [":colorr"] = data.building_colorr,
       [":colorg"] = data.building_colorg,
-      [":colorb"] = data.building_colorb
+      [":colorb"] = data.building_colorb,
+      [":items"] = data.building_items
     })
-    self.LoadBuildings()
+    self:LoadBuildings()
     self:SendBuildings()
   end
 
