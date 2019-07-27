@@ -17,7 +17,7 @@ Server =
     BindIP                      = "",
     -- The port the server uses.
     -- Default value: 7777
-    BindPort                    = 7777,
+    BindPort                    = 8585,
     -- The time before a player is timed out after temporarily losing
     -- connection, or crashing without properly disconnecting.
     -- Default value (in milliseconds): 10000
